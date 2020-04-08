@@ -1,21 +1,20 @@
 import MarkerClusterer from '@google/markerclustererplus';
 
-const googleMapsAPIKey = 'YOUR API KEY';
-loadMapsJSAPI(googleMapsAPIKey);
+loadMapsJSAPI();
 
 function runApp() {
-  const map = initMap();
+  const map = displayMap();
   const markers = addMarkers(map);
-  const markerCluster = clusterMarkers(map, markers);
+  clusterMarkers(map, markers);
   addPanToMarker(map, markers);
   drawCircle(map);
 }
 
 function loadMapsJSAPI(googleMapsAPIKey) {
-
-  const googleMapsAPIURI = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`,
-    head = document.querySelector('head'),
-    script = document.createElement('script');
+  const googleMapsAPIKey = 'YOUR API KEY';
+  const googleMapsAPIURI = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`;
+  const head = document.querySelector('head');
+  const script = document.createElement('script');
 
   window['runApp'] = runApp;
 
@@ -26,7 +25,7 @@ function loadMapsJSAPI(googleMapsAPIKey) {
   head.appendChild(script);
 }
 
-function initMap() {
+function displayMap() {
   let center = { lat: -33.860664, lng: 151.208138 };
   let zoom = 14;
   let mapDiv = document.getElementById('map');

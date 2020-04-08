@@ -3,14 +3,14 @@ import MarkerClusterer from '@google/markerclustererplus';
 loadMapsJSAPI();
 
 function runApp() {
-  const map = displayMap();
-  const markers = addMarkers(map);
-  clusterMarkers(map, markers);
-  addPanToMarker(map, markers);
-  drawCircle(map);
+  console.log('Maps JS API loaded');
+  // const map = displayMap();
+  // const markers = addMarkers(map);
+  // clusterMarkers(map, markers);
+  // addPanToMarker(map, markers);
 }
 
-function loadMapsJSAPI(googleMapsAPIKey) {
+function loadMapsJSAPI() {
   const googleMapsAPIKey = 'YOUR API KEY';
   const googleMapsAPIURI = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`;
   const head = document.querySelector('head');
@@ -57,6 +57,7 @@ function addMarkers(map) {
   const markers = [];
   for (const location in locations) {
     const markerOptions = {
+      map: map,
       position: locations[location],
       icon: './img/custom_pin.png'
     }

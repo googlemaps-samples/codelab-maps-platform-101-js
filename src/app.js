@@ -4,10 +4,10 @@ loadMapsJSAPI();
 
 function runApp() {
   console.log('Maps JS API loaded');
-  // const map = displayMap();
-  // const markers = addMarkers(map);
-  // clusterMarkers(map, markers);
-  // addPanToMarker(map, markers);
+  const map = displayMap();
+  const markers = addMarkers(map);
+  clusterMarkers(map, markers);
+  addPanToMarker(map, markers);
 }
 
 function loadMapsJSAPI() {

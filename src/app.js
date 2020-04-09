@@ -16,7 +16,7 @@ function loadMapsJSAPI() {
   const head = document.querySelector('head');
   const script = document.createElement('script');
 
-  window['runApp'] = runApp;
+  window.runApp = runApp;
 
   script.type = 'text/javascript';
   script.src = googleMapsAPIURI;
@@ -26,13 +26,12 @@ function loadMapsJSAPI() {
 }
 
 function displayMap() {
-  let center = { lat: -33.860664, lng: 151.208138 };
-  let zoom = 14;
-  let mapDiv = document.getElementById('map');
-  let map = new google.maps.Map(mapDiv, {
-    center: center,
-    zoom: zoom
-  });
+  const mapOptions = {
+    center: { lat: -33.860664, lng: 151.208138 },
+    zoom: 14
+  };
+  const mapDiv = document.getElementById('map');
+  const map = new google.maps.Map(mapDiv, mapOptions);
   return map;
 }
 
@@ -68,14 +67,13 @@ function addMarkers(map) {
 }
 
 function clusterMarkers(map, markers) {
-  const options = { imagePath: './img/m' }
-  const markerCluster = new MarkerClusterer(map, markers, options);
-  return markerCluster;
+  const clustererOptions = { imagePath: './img/m' }
+  const markerCluster = new MarkerClusterer(map, markers, clustererOptions);
 }
 
 function addPanToMarker(map, markers) {
   let circle;
-  markers = markers.map(marker => {
+  markers.map(marker => {
     marker.addListener('click', event => {
       const location = { lat: event.latLng.lat(), lng: event.latLng.lng() };
       map.panTo(location);
@@ -85,17 +83,17 @@ function addPanToMarker(map, markers) {
       circle = drawCircle(map, location);
     });
   });
-  return markers;
 }
 
 function drawCircle(map, location) {
-  const circle = new google.maps.Circle({
+  const circleOptions = {
     strokeColor: '#FF0000',
     strokeOpacity: 0.8,
     strokeWeight: 1,
     map: map,
     center: location,
     radius: 800
-  });
+  }
+  const circle = new google.maps.Circle(circleOptions);
   return circle;
 }

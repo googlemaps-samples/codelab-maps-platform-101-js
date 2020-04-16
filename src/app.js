@@ -30,11 +30,11 @@ function loadMapsJSAPI() {
   const googleMapsAPIURI = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`;
   const script = document.createElement('script');
 
-  window.runApp = runApp;
-
   script.src = googleMapsAPIURI;
   script.defer = true;
   script.async = true;
+
+  window.runApp = runApp;
   document.head.appendChild(script);
 }
 

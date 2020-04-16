@@ -46,8 +46,7 @@ function displayMap() {
     zoom: 14
   };
   const mapDiv = document.getElementById('map');
-  const map = new google.maps.Map(mapDiv, mapOptions);
-  return map;
+  return new google.maps.Map(mapDiv, mapOptions);
 }
 
 function addMarkers(map) {

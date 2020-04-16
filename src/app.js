@@ -28,16 +28,14 @@ function runApp() {
 function loadMapsJSAPI() {
   const googleMapsAPIKey = 'YOUR API KEY';
   const googleMapsAPIURI = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`;
-  const head = document.querySelector('head');
   const script = document.createElement('script');
 
   window.runApp = runApp;
 
-  script.type = 'text/javascript';
   script.src = googleMapsAPIURI;
   script.defer = true;
   script.async = true;
-  head.appendChild(script);
+  document.head.appendChild(script);
 }
 
 function displayMap() {

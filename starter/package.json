@@ -1,0 +1,18 @@
+{
+  "name": "codelab-js-maps-api-101",
+  "version": "1.0.0",
+  "description": "An example app to accompany the Google Maps Platform 101: JavaScript codelab",
+  "main": "/src/app.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --hot --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Muramoto",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@google/markerclustererplus": "^5.0.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

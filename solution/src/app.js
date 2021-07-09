@@ -13,30 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import { Loader } from '@googlemaps/js-api-loader';
 import MarkerClusterer from '@google/markerclustererplus';
 
-loadMapsJSAPI();
+const apiOptions = {
+  apiKey: "YOUR API KEY"
+}
 
-function runApp() {
+const loader = new Loader(apiOptions);
+
+loader.load().then(() => {
   console.log('Maps JS API loaded');
   const map = displayMap();
   const markers = addMarkers(map);
   clusterMarkers(map, markers);
   addPanToMarker(map, markers);
-}
-
-function loadMapsJSAPI() {
-  const googleMapsAPIKey = 'YOUR API KEY';
-  const googleMapsAPIURI = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`;
-  const script = document.createElement('script');
-
-  script.src = googleMapsAPIURI;
-  script.defer = true;
-  script.async = true;
-
-  window.runApp = runApp;
-  document.head.appendChild(script);
-}
+});
 
 function displayMap() {
   const mapOptions = {
@@ -79,7 +72,7 @@ function addMarkers(map) {
 }
 
 function clusterMarkers(map, markers) {
-  const clustererOptions = { imagePath: './img/m' }
+  const clustererOptions = { imagePath: './img/m' };
   const markerCluster = new MarkerClusterer(map, markers, clustererOptions);
 }
 

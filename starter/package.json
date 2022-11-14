@@ -13,7 +13,7 @@
     "@google/markerclustererplus": "^5.0.3",
     "@googlemaps/js-api-loader": "^1.12.1",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.10.3"
   }
 }

@@ -34,7 +34,8 @@ loader.load().then(() => {
 function displayMap() {
   const mapOptions = {
     center: { lat: -33.860664, lng: 151.208138 },
-    zoom: 14
+    zoom: 14,
+    mapId: 'YOUR_MAP_ID'
   };
   const mapDiv = document.getElementById('map');
   return new google.maps.Map(mapDiv, mapOptions);
